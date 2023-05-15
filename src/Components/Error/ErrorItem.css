@@ -1,0 +1,9 @@
+.error {
+    width: 500px;
+    align-self: center;
+    height: 50px;
+    color: crimson;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}

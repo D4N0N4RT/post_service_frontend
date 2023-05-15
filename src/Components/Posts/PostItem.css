@@ -1,0 +1,36 @@
+.pageContainer {
+    padding: 25px 25%;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-card {
+    cursor: pointer;
+    min-height: 350px;
+    border: 1px solid orange;
+    border-radius: 1.5px;
+    width: 340px;
+    margin: 10px 20px 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-image {
+    align-self: center;
+    border-radius: 1px;
+    margin: 10px 15px;
+}
+
+.main {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+.info {
+    font-size: 16px;
+    padding: 2px 15px 5px;
+}
