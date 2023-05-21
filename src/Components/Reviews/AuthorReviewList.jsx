@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../Store/Hooks/redux';
 import { setErrorData } from '../../Store/Reducers/UserReducer';
 import ErrorItem from '../Error/ErrorItem';
 
-function UserReviewList(props) {
+function AuthorReviewList(props) {
     const [reviews, setReviews] = useState([]);
     
     const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ function UserReviewList(props) {
 
     useEffect(() => {
         const fetchReviews = async () => {
-            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/users/${props.user_id}/reviews?option=received`, {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/users/${props.user_id}/reviews?option=written`, {
                 method:"GET",
                 headers: {
                     'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
@@ -53,4 +53,4 @@ function UserReviewList(props) {
     );
 }
 
-export default UserReviewList;
+export default AuthorReviewList;

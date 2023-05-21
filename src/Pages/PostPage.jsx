@@ -24,12 +24,12 @@ function ExcPostPage() {
     const buyPost = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`http://localhost:8081/posts/${post_id}/buy`, {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/posts/${post_id}/buy`, {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
                 Authorization: `${userToken}`
@@ -89,7 +89,7 @@ function ExcPostPage() {
                         <PostButton/>
                     </div>
                     <div className="seller-profile">
-                        <img src="https://placehold.co/100x100/000000/FFFFFF/png" alt="User Avatar" className="profile-avatar"/>
+                        <img src="https://placehold.co/100x100/000000/FFFFFF/png" alt="User Avatar" className="profile-avatar" onClick={() => navigate(`/users/${currentPost.seller.id}`)}/>
                         <div className="seller-details">
                             <h3>Продавец </h3>
                             <h5>Имя: {currentPost.seller.name} {currentPost.seller.surname}</h5>

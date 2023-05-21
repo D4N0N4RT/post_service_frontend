@@ -20,12 +20,12 @@ const RegistrationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:8081/auth/registration', {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/auth/registration`, {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
             },

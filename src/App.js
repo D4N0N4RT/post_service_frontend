@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     const fetchRefresh = async () => {
       if (refreshToken) {
-        const response = await fetch(`http://localhost:8081/auth/refresh`, {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/auth/refresh`, {
           method:"POST",
           headers: {
               'Access-Control-Allow-Origin': 'http://localhost:8081',

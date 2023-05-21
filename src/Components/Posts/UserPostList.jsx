@@ -15,10 +15,10 @@ function UserPostList(props) {
 
     useEffect(() => {
         const fetchUnsoldPosts = async () => {
-            const response = await fetch('http://localhost:8081/users/' + props.user_id + '/posts?sold=false', {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/users/${props.user_id}/posts?sold=false`, {
                 method:"GET",
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:8081',
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                     'Access-Control-Allow-Headers': '*',
                     Authorization: `${userToken}`
@@ -36,9 +36,18 @@ function UserPostList(props) {
         fetchUnsoldPosts();
     }, [userToken, dispatch, props.user_id]);
 
+    if (posts.length === 0) {
+        return (
+            <div className="nothing-container">
+                <h4>
+                Объявления отсутствуют
+                </h4>
+            </div>
+        )
+    }
+
     return (
         <div className="row-container">
-            <ErrorItem/>
             {posts.map(post =>
                 <PostRow key={post.id} post={post}/>
             )}

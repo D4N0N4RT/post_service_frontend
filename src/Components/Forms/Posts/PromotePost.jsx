@@ -17,12 +17,12 @@ function PromotePost() {
     const promote = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`http://localhost:8081/posts/${currentPost.id}/promote?promotion=${promotion}`, {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/posts/${currentPost.id}/promote?promotion=${promotion}`, {
             method: 'PATCH',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
                 Authorization: `${userToken}`

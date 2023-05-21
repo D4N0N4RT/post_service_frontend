@@ -11,10 +11,10 @@ function Main() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch('http://localhost:8081/posts', {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/posts`, {
                 method:"GET",
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:8081',
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                     'Access-Control-Allow-Headers': '*'
                 },

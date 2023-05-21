@@ -12,11 +12,11 @@ function PostItem(props) {
   const {userToken} = useAppSelector(state=>state.userReducer);
 
   const fetchPost = async () => {
-      const response = await fetch('http://localhost:8081/posts/' + props.post.id, {
+      const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/posts/${props.post.id}`, {
           method: 'GET',
           mode: 'cors',
           headers: {
-              'Access-Control-Allow-Origin': 'http://localhost:8081',
+              'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
               'Access-Control-Allow-Methods': 'GET, POST, DELETE',
               'Access-Control-Allow-Headers': '*',
               Authorization: `${userToken}`

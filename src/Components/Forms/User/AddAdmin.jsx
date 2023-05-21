@@ -21,12 +21,12 @@ const AddAdmin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:8081/admin', {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/admin`, {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
                 'Authorization': {userToken}

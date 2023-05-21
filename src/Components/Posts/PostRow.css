@@ -1,5 +1,5 @@
 .post-row {
-    width: 1000px;
+    width: 1500px;
     cursor: pointer;
     display: flex;
     margin: 5px 10px;
@@ -8,6 +8,17 @@
 .row-container {
     padding: 5px, 0;
     justify-self: flex-start;
+}
+
+.nothing-container {
+    padding: 5px, 0;
+    justify-self: flex-start;
+}
+
+.nothing-container h4 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 2px;
 }
 
 .row-info {

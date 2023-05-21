@@ -22,10 +22,10 @@ const FilterBar = () => {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const response = await fetch('http://localhost:8081/categories', {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/categories`, {
                 method:"GET",
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:8081',
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                     'Access-Control-Allow-Headers': '*'
                 },
@@ -61,12 +61,12 @@ const FilterBar = () => {
     const filterPosts = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`http://localhost:8081/posts/filter?query=${rsqlBuilder()}&sort=${encodeURIComponent(sortOption)}`, {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/posts/filter?query=${rsqlBuilder()}&sort=${encodeURIComponent(sortOption)}`, {
             method: 'GET',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*'
             }

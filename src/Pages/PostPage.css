@@ -67,7 +67,7 @@
 
 .button-image-div {
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -77,12 +77,11 @@
 
 .button-image-div div {
     width: 100%;
-    height: 40px;
 }
 
 .post-button {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     height: 60px;
     border: 2px solid #fff;
     background-color: #da1b60;

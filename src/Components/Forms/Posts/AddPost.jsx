@@ -25,10 +25,10 @@ function AddPost() {
             navigate('/auth/login')
         }
         const fetchCategories = async () => {
-            const response = await fetch('http://localhost:8081/categories', {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/categories`, {
                 method:"GET",
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:8081',
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                     'Access-Control-Allow-Headers': '*'
                 },
@@ -42,12 +42,12 @@ function AddPost() {
     const addPost = async (event) => {
         event.preventDefault();
 
-        const response = await fetch('http://localhost:8081/posts', {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/posts`, {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
                 Authorization: `${userToken}`

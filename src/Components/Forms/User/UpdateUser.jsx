@@ -20,10 +20,10 @@ const UpdateUser = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const response = await fetch('http://localhost:8081/users/' + userId, {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/users/${userId}`, {
                 method:"GET",
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:8081',
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                     'Access-Control-Allow-Headers': '*',
                     Authorization: `${userToken}`
@@ -49,12 +49,12 @@ const UpdateUser = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:8081/auth/edit', {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/auth/edit`, {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
             },

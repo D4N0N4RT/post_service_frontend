@@ -7,6 +7,7 @@ import { setErrorData, clearResults } from '../Store/Reducers/UserReducer';
 import { useNavigate } from 'react-router-dom';
 import ErrorItem from '../Components/Error/ErrorItem';
 import { Link } from 'react-router-dom';
+import AuthorReviewList from '../Components/Reviews/AuthorReviewList';
 
 const UserProfile = () => {
     const [user, setUser] = useState([])
@@ -22,10 +23,10 @@ const UserProfile = () => {
             navigate('/auth/login')
         }
         const fetchUser = async () => {
-            const response = await fetch('http://localhost:8081/users/' + user_id, {
+            const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/users/${user_id}`, {
                 method:"GET",
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:8081',
+                    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                     'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                     'Access-Control-Allow-Headers': '*',
                     Authorization: `${userToken}`
@@ -94,8 +95,10 @@ const UserProfile = () => {
                 <div className='userPosts'>
                     <h3>Объявления пользователя</h3>
                     <UserPostList user_id={user_id}/>
-                    <h3>Отзывы</h3>
+                    <h3>Отзывы на пользователя</h3>
                     <UserReviewList user_id={user_id}/>
+                    <h3>Отзывы от пользователя</h3>
+                    <AuthorReviewList user_id={user_id}/>
                 </div>
             </div>
         </div>

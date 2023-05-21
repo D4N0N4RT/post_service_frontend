@@ -14,12 +14,12 @@ function AdminPostItem(props) {
     const deletePost = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`http://localhost:8081/admin/posts/${props.post.id}`, {
+        const response = await fetch(`${process.env.REACT_APP_SPRING_URL}/admin/posts/${props.post.id}`, {
             method: 'DELETE',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8081',
+                'Access-Control-Allow-Origin': `${process.env.REACT_APP_SPRING_URL}`,
                 'Access-Control-Allow-Methods': 'GET, POST, DELETE',
                 'Access-Control-Allow-Headers': '*',
                 Authorization: `${userToken}`
