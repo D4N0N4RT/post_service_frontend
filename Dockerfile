@@ -1,8 +1,7 @@
-FROM node:16-alpine3.16
-RUN mkdir -p /src/app
-WORKDIR /src/app
-COPY package.json /src/app/
+FROM node:16
+WORKDIR /src
+COPY package.json ./
 RUN npm install
-COPY . /src/app
+COPY . .
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
